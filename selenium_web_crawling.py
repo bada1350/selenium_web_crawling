@@ -1,5 +1,4 @@
 from selenium import webdriver
-# from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
@@ -79,8 +78,8 @@ for i, url in enumerate(url_list):
             except:
                 pass
         
-        target_pdf = soup.select("a.VNb9p")
-        pdf_name = soup.select("._1vNJf .font_8")
+        target_pdf = soup.select("a.AyFEbi")
+        pdf_name = soup.select(".Zc7IjY p.font_8")
 
         for p, n in zip(target_pdf, pdf_name):
             try:
