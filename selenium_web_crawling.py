@@ -22,17 +22,17 @@ time.sleep(3)
 
 SCROLL_PAUSE_TIME = 2
 
-# Get scroll height
+# 스크롤 높이 가져오기
 last_height = driver.execute_script("return document.body.scrollHeight")
 
 while True:
-    # Scroll down to bottom
+    # 아래로 끝까지 스크롤
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
-    # Wait to load page
+    # 페이지 로드 대기
     time.sleep(SCROLL_PAUSE_TIME)
 
-    # Calculate new scroll height and compare with last scroll height
+    # 새 스크롤 높이 계산 및 기존의 스크롤 높이와 비교
     new_height = driver.execute_script("return document.body.scrollHeight")
     if new_height == last_height:
         try:
