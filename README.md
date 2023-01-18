@@ -1,9 +1,9 @@
 # selenium_web_crawling
-셀레니움을 이용한 웹 크롤링
+셀레니움(Selenium) - 동적 웹 페이지 크롤링
 <br><br><br>
 
 ## 코드 설명
-*PPT를 참고 바랍니다.*
+[셀레니움(Selenium) - 동적 웹 페이지 크롤링.pdf](https://github.com/bada1350/selenium_web_crawling/files/10448270/Selenium.-.pdf)
 <br><br><br>
 
 ## 사용법
