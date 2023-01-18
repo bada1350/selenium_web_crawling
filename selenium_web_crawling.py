@@ -18,6 +18,7 @@ driver = webdriver.Chrome(service=service)
 
 driver.get("https://www.onekitprojects.com/51515")
 
+# 페이지 로드 대기
 time.sleep(3)
 
 SCROLL_PAUSE_TIME = 2
@@ -55,7 +56,10 @@ for i, url in enumerate(url_list):
 
 print(url_list)
 
+# 현재 위치에 '자료 모음' 폴더 생성
 os.mkdir("./자료 모음")
+
+# '자료 모음' 폴더 내부에 프로젝트 자료들을 저장할 폴더 생성
 for n in folder_name:
     os.mkdir("./자료 모음/{}".format(n))
 
@@ -65,6 +69,7 @@ for i, url in enumerate(url_list):
         html = res.content.decode("utf-8")
         soup = BeautifulSoup(html, "html.parser")
 
+        # Image 자료 저장
         target_img = soup.select("img.gallery-item-visible.gallery-item.gallery-item-preloaded")
 
         for idx, img in enumerate(target_img):
@@ -78,6 +83,7 @@ for i, url in enumerate(url_list):
             except:
                 pass
         
+        # Building Instructions(PDF 파일) 저장
         target_pdf = soup.select("a.AyFEbi")
         pdf_name = soup.select(".Zc7IjY p.font_8")
 
@@ -93,6 +99,7 @@ for i, url in enumerate(url_list):
             except:
                 pass
         
+        # Programming 자료 저장
         programing_download_url = soup.select_one(".StylableButton2545352419__root.style-l17yovyx1__root.StylableButton2545352419__link")["href"]
         urllib.request.urlretrieve(programing_download_url, "./자료 모음/{}/{} Programming.zip".format(folder_name[i], folder_name[i]))
     else:
